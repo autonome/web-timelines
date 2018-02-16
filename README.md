@@ -1,27 +1,50 @@
-Welcome to the Glitch BETA
+Web Platform Timelines
 =========================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+A visual timeline for a given web feature (eg: CSS Grid) that shows:
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+* Browser implementation milestones (eg developer access, unprefixing, etc)
+* Standardization milestones (eg W3C spec revisions and status)
+* Google Trends data
+* Global availability (eg what % of browsers in-use now support the feature)
+* Actual usage (based on Google's public usage data)
+* Communication events (eg date added to MDN, major conference talks)
 
-Find out more [about Glitch](https://glitch.com/about).
-
-
-Your Project
+Data Sources
 ------------
 
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
+* Browser implementation milestones
+  * MDN Compat Data
+* Standardization milestones (eg W3C spec revisions and status)
+  * Scraping spec URLs
+  * TODO: Automate mapping of feature back to spec - on MDN?
+* Google Trends data
+  * Generate CSV download URL
+* Global availability
+  * TODO: Caniuse has this, via StatCounter
+* Actual usage (based on Google's public usage data)
+  * eg https://www.chromestatus.com/metrics/css/timeline/popularity/233
+  * TODO: stored publicly? can re-use?
+* Communication events
+  * TODO:
 
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
+Visualization
+-------------
 
+Overview
+* X axis: swimlane-style timelines
+* Y axis: plotted values within lane
+* Can show multiple streams per lane (eg all browser impl timelines in a single lane)
 
-Made by [Fog Creek](https://fogcreek.com/)
+Implementation
+* D3.js or DC.js?
+
+Data sources
+* Import feed as stream source
+* Import gcal as stream source
+* Import gsheet as stream source
+
+Made by [Dietrich Ayala](https://metafluff.com/)
 -------------------
 
 \ ゜o゜)ノ
